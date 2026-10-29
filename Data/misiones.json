@@ -1,0 +1,16 @@
+[
+  {
+    "Id": 2,
+    "Nombre": "OtraMision",
+    "Dificultad": "Media",
+    "RecompensaXP": 70,
+    "Completada": false
+  },
+  {
+    "Id": 3,
+    "Nombre": "OtraMision2",
+    "Dificultad": "Dificil",
+    "RecompensaXP": 300,
+    "Completada": false
+  }
+]
