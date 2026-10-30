@@ -36,3 +36,10 @@ app.UseHttpsRedirection();
 app.MapControllers();
 
 app.Run();
+
+// Swagger
+// dotnet add package Swashbuckle.AspNetCore.SwaggerUI
+// ORM
+// dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+// dotnet add package Microsoft.EntityFrameworkCore.Design
+// dotnet tool install --global dotnet-ef --version 10.0.*
