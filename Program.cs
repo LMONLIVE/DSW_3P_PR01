@@ -15,12 +15,20 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 
 //Agregar dependencias
-builder.Services.AddScoped<IMisionRepository,MisionSQLRepository>();
+// builder.Services.AddScoped<IMisionRepository,MisionSQLRepository>();
+builder.Services.AddScoped<IMisionRepository,MisionPostgreSqlRepository>();
 builder.Services.AddScoped<IMisionService,MisionService>();
 //Configuración del SQL SERVER
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("SqlServerConnection")
+// builder.Services.AddDbContext<AppDbContext>(options =>
+//     options.UseSqlServer(
+//         builder.Configuration.GetConnectionString("SqlServerConnection")
+//     )
+// );
+
+//Configuración del Pos
+builder.Services.AddDbContext<PostgreSqlDbContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("PostgreSqlConnection")
     )
 );
 
@@ -88,11 +96,17 @@ app.Run();
 
 // Swagger
 // dotnet add package Swashbuckle.AspNetCore.SwaggerUI
+
 // ORM
-// dotnet add package Microsoft.EntityFrameworkCore.SqlServer
-// dotnet add package Microsoft.EntityFrameworkCore.Design
+// dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version "10.0.*"
+// dotnet add package Microsoft.EntityFrameworkCore.Design --version "10.0.*"
 // dotnet tool install --global dotnet-ef --version 10.0.*
-// GIT
+
+// GITIGNORE
 // dotnet new gitignore
 
+// JWT
 // dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version "10.0.*"
+
+// POSTGRESQL
+// dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL --version 10.0.*
